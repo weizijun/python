@@ -11901,6 +11901,7 @@ enclose
 vt. 围绕；装入；放入封套
 [,过去式,enclosed,过去分词,enclosed,现在分词,enclosing,]
 
+
 evidence
 ['ɛvɪdəns]
 n. 证据，证明；迹象；明显
@@ -12853,6 +12854,7 @@ n. 嗅觉器官
 optimal
 ['ɑptəml]
 adj. 最佳的；最理想的
+
 
 pesticide
 ['pɛstɪsaɪd]
@@ -16714,6 +16716,7 @@ alter
 vt. 改变，更改
 vi. 改变；修改
 
+
 amass
 [ə'mæs]
 vt. 积聚，积累
@@ -18335,3 +18338,4 @@ zinc
 vt. 镀锌于…；涂锌于…；用锌处理
 n. 锌
 [,过去式,zincked或zinced,过去分词,zincked或zinced,现在分词,zincking或zincing,]
+

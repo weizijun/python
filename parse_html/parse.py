@@ -6,6 +6,7 @@ import HTMLParser
 
 class MyHTMLParser(HTMLParser.HTMLParser):
     _keyword_flag = False
+    _phonetic_baav_flag = False
     _phonetic = False
     _usa__phonetic = False
     _uk__phonetic_flag = False
@@ -27,6 +28,12 @@ class MyHTMLParser(HTMLParser.HTMLParser):
                 #设置音标
                 elif attr[0] == "class" and attr[1] == "pronounce" :
                     self._phonetic = True
+
+        #设置音标
+        if tag == "div" :
+            for attr in attrs:
+                if attr[0] == "class" and attr[1] == "baav" :
+                    self._phonetic_baav_flag = True
 
         #设置解释
         if tag == "div" :
@@ -50,14 +57,18 @@ class MyHTMLParser(HTMLParser.HTMLParser):
         elif self._phonetic ==True and tag == "span"  :
             self._phonetic = False
             self._usa__phonetic = False
+            #self._uk__phonetic = ""
+        elif self._uk__phonetic_flag == True and tag == "span" :
             self._uk__phonetic_flag = False
-            self._uk__phonetic = ""
         elif self._trans == True and tag == "div" :
             self._trans = False
         elif self._trans_ul == True and tag == "ul" :
             self._trans_ul = False
         elif self._trans_add == True and tag == "p" :
             self._trans_add = False
+        elif self._phonetic_baav_flag == True and tag == "div" :
+            self._phonetic_baav_flag = False
+            self._uk__phonetic = ""
 
     def handle_data(self, data):
         #设置单词
@@ -166,6 +177,7 @@ def save_data() :
     word_file = open("word.txt",'w')
     word_arr =  r_file.readlines()
 
+    index = 0
     for word in word_arr :
         print word
         try :
@@ -182,9 +194,17 @@ def save_data() :
                 print data
                 word_file.write(data)
                 continue
+
             parser = MyHTMLParser()
             parser.feed(content)
             final_content = parser.get_content()
+
+            if not content :
+                data = "该单词不存在:" + word
+                print data
+                word_file.write(data)
+                continue
+
             final_content += "\n"
             w_file.write(final_content)
             parser.close()
@@ -192,7 +212,9 @@ def save_data() :
             data = "获取单词异常:" + word
             print data
             word_file.write(data)
+        index += 1
 
+    print index
     r_file.close()
     w_file.close()
     word_file.close()

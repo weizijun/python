@@ -524,7 +524,6 @@ n. 炸药；爆炸物
 [,比较级,moreexplosive,最高级,mostexplosive,]
 
 forestall
-[fɔː'stɔːl]
 vt. 垄断；预先阻止；占先一步
 
 fume
@@ -1094,7 +1093,6 @@ melanin
 n. 黑色素
 
 nomadic
-[nəʊ'mædɪk]
 adj. 游牧的；流浪的；游动的
 
 notorious
@@ -1223,7 +1221,6 @@ vt. 铺以瓦；铺以瓷砖
 [,过去式,tiled,过去分词,tiled,现在分词,tiling,]
 
 unadorned
-[ʌnə'dɔːnd]
 adj. 朴素的；未装饰的
 
 unprecedented
@@ -1271,7 +1268,6 @@ vt. 保证；担保；使确信；弄清楚
 [,过去式,assured,过去分词,assured,现在分词,assuring,]
 
 attire
-[ə'taɪə]
 n. 服装；盛装
 vt. 打扮；使穿衣
 [,过去式,attired,过去分词,attired,现在分词,attiring,]
@@ -2713,7 +2709,6 @@ adj. 敏锐的，敏捷的；渴望的；强烈的；热心的；锐利的
 n. 痛哭，挽歌
 
 landmass
-['lændmæs]
 n. 大陆
 
 latent
@@ -2978,7 +2973,6 @@ vi. 散布；广为传播
 [,过去式,disseminated,过去分词,disseminated,现在分词,disseminating,]
 
 Easter
-['i:stə]
 n. 复活节
 
 elegant
@@ -3049,7 +3043,6 @@ vi. 孵化
 [,第三人称单数,hatches,过去式,hatched,过去分词,hatched,现在分词,hatching,]
 
 incessantly
-[ɪn'sesntlɪ]
 adv. 不停地，不间断地
 
 instruction
@@ -3388,7 +3381,6 @@ vi. 详细描述；变复杂
 [,最高级,mostelaborate,]
 
 engulf
-[ɪn'gʌlf; en-]
 vt. 吞没；吞食，狼吞虎咽
 
 eternal
@@ -3830,7 +3822,6 @@ hygiene
 n. 卫生；卫生学；保健法
 
 ideology
-[,aɪdɪ'ɒlədʒɪ; ɪd-]
 n. 意识形态；思想意识；观念学
 [,复数,ideologies,]
 
@@ -5476,7 +5467,6 @@ vt. 虚度；使空转
 [,比较级,idler,最高级,idlest,]
 
 inanity
-[ɪ'nænətɪ]
 n. 空虚；愚蠢；浅薄
 [,复数,inanities,]
 
@@ -5870,7 +5860,6 @@ vt. 强加；征税；以…欺骗
 [,过去式,imposed,过去分词,imposed,现在分词,imposing,]
 
 incinerate
-[ɪn'sɪnəreɪt]
 vi. 把……烧成灰；烧弃
 vt. 焚化；烧成灰
 [,过去式,incinerated,过去分词,incinerated,现在分词,incinerating,]
@@ -6010,7 +5999,6 @@ receiver
 n. 接收器；接受者；收信机；收款员，接待者
 
 recharge
-[riː'tʃɑːdʒ]
 vt. 再充电；再袭击；再控告
 n. 再袭击；再装填
 vi. 再袭击
@@ -6208,7 +6196,6 @@ vt. 证明…有罪；宣告…有罪
 n. 罪犯
 
 cookout
-['kʊkaʊt]
 n. （美）野外郊游时烹调的野餐；野烹食物
 adj. 野外烹饮聚会的
 
@@ -6568,8 +6555,6 @@ athlete
 n. 运动员，体育家；身强力壮的人
 
 aviation
-[,evɪ'eʃən]
-n. 航空；飞行术；飞机制造业
 
 bedrock
 ['bɛdrɑk]
@@ -7019,7 +7004,6 @@ adj. 弯曲的；曲线形的
 [,过去式,curved,过去分词,curved,现在分词,curving,]
 
 dazzling
-['dæzlɪŋ]
 adj. 耀眼的；眼花缭乱的
 v. 使…眼花（dazzle的ing形式）
 
@@ -7145,7 +7129,6 @@ insight
 n. 洞察力；洞悉
 
 insistence
-[ɪn'sɪst(ə)ns]
 n. 坚持，强调；坚决主张
 
 intimate
@@ -7216,7 +7199,6 @@ adj. 塑料的；（外科）造型的；可塑的
 n. 塑料制品；整形；可塑体
 
 pocketbook
-['pɒkɪtbʊk]
 n. 钱包；笔记本；经济来源；皮夹
 
 portray
@@ -7296,7 +7278,6 @@ n. 次品；奖品
 [,过去式,spoiled或spoilt,过去分词,spoiled或spoilt,现在分词,spoiling,]
 
 stash
-[stæʃ]
 n. 藏匿处；藏匿物
 vt. 存放；贮藏
 vi. 存放；藏起来
@@ -7484,11 +7465,9 @@ element
 n. 元素；要素；原理；成分；自然环境
 
 enlightment
-美
 n. 启蒙
 
 equitable
-['ekwɪtəb(ə)l]
 adj. 公平的，公正的；平衡法的
 
 estate
@@ -7523,7 +7502,6 @@ n. 壁画
 [,复数,frescoes或frescos,]
 
 frivolity
-[frɪ'vɒlɪtɪ]
 n. 轻浮；轻薄；轻率
 [,复数,frivolities,]
 
@@ -7793,7 +7771,6 @@ adj. 典型的；特有的；表示特性的
 n. 特征；特性；特色
 
 collectively
-[kə'lektivli]
 adv. 共同地，全体地
 
 colonize
@@ -7851,7 +7828,6 @@ n. 弹性；弹力；灵活性
 [,复数,elasticities,]
 
 embellish
-[ɪm'belɪʃ; em-]
 vt. 修饰；装饰；润色
 vi. 装饰起来；加以润色
 
@@ -8975,7 +8951,6 @@ n. 活动；行动；活跃
 [,复数,activities,]
 
 acumen
-['ækjʊmən; ə'kjuːmən]
 n. 聪明，敏锐
 
 allergic
@@ -9197,11 +9172,9 @@ vi. 发生；出现；存在
 [,过去式,occurred,过去分词,occurred,现在分词,occurring,]
 
 outrageously
-[aut'reidʒəsli]
 adv. 凶残地，残暴地
 
 paucity
-['pɔːsɪtɪ]
 n. 缺乏；少数；少量
 
 personality
@@ -9432,7 +9405,6 @@ vi. 放弃
 n. 抛弃；被丢弃的东西或人
 
 dissenter
-[dɪ'sentə]
 n. 持异议者；反对者
 
 dormant
@@ -9892,7 +9864,6 @@ adj. 弯曲的；歪的；不正当的
 [,比较级,morecrooked,最高级,mostcrooked,]
 
 cumbersome
-['kʌmbəs(ə)m]
 adj. 笨重的；累赘的；难处理的
 
 debut
@@ -10422,7 +10393,6 @@ maintain
 vt. 维持；继续；维修；主张；供养
 
 millennium
-[mɪ'lenɪəm]
 n. 千年期，千禧年；一千年，千年纪念；太平盛世，黄金时代
 [,复数,millenniums或millennia,]
 
@@ -10646,12 +10616,10 @@ adj. 选中的；格子花纹的
 v. 检查（check的过去式和过去分词）
 
 choreograph
-['kɒrɪəgrɑːf]
 vt. 设计舞蹈动作；为…编舞
 vi. 设计舞蹈动作
 
 clamor
-['klæmə]
 n. 喧闹，叫嚷；大声的要求
 vi. 喧嚷，发喧嚣声；持续地喊声
 vt. 喧嚷着说出
@@ -11439,7 +11407,6 @@ vi. 伪装起来
 [,过去式,camouflaged,过去分词,camouflaged,现在分词,camouflaging,]
 
 canyon
-['kænjən]
 n. 峡谷
 
 capacity
@@ -11452,7 +11419,6 @@ chlorine
 n. [化学] 氯（17号化学元素）
 
 choreographer
-[,kɒrɪ'ɒɡrəfə]
 n. 编舞者，舞蹈指导
 
 chunk
@@ -11468,7 +11434,6 @@ adj. 没有手提带或背带的；紧要关头的
 [,第三人称单数,clutches,过去式,clutched,过去分词,clutched,现在分词,clutching,]
 
 codify
-['kəʊdɪfaɪ]
 vt. 编纂；将...编成法典；编成法典
 [,过去式,codified,过去分词,codified,现在分词,codifying,]
 
@@ -12577,7 +12542,6 @@ adj. 生动的；鲜明的；鲜艳的
 [,比较级,morevivid,最高级,mostvivid,]
 
 wanna
-['wɒnə]
 vt. 想要（等于want to）
 
 wedge-shaped
@@ -12592,7 +12556,6 @@ adj. 象小束状的，纤细的；脆弱的
 [,比较级,wispier,最高级,wispiest,]
 
 yarn
-[jɑːn]
 n. 纱线；奇谈，故事
 vt. 用纱线缠
 vi. 讲故事
@@ -12674,7 +12637,6 @@ vt. 考虑；认为；考虑到；细想
 vi. 考虑；认为；细想
 
 contamination
-[kən,tæmɪ'neɪʃən]
 n. 污染，玷污；污染物
 
 contemporary
@@ -12831,7 +12793,6 @@ mundane
 adj. 世俗的，平凡的；世界的，宇宙的
 
 myriad
-['mɪrɪəd]
 adj. 无数的；种种的
 n. 无数，极大数量；无数的人或物
 
@@ -13162,7 +13123,6 @@ emergence
 n. 出现，浮现；发生；露头
 
 entrenched
-[ɪn'tren(t)ʃt; en-]
 adj. 根深蒂固的；确立的，不容易改的
 v. 确立；保证；挖掘壕沟（entrench的过去分词）
 
@@ -14669,7 +14629,6 @@ vt. 用天蓬遮盖；遮盖
 [,复数,canopies,过去式,canopied,过去分词,canopied,现在分词,canopying,]
 
 cascara
-[kæs'kɑːrə]
 n. 药鼠李；用其树皮制成的缓泻剂
 
 chafe
@@ -15570,7 +15529,6 @@ vt. 包住；围绕；包装
 [,过去式,encased,过去分词,encased,现在分词,encasing,]
 
 encompass
-[ɪn'kʌmpəs; en-]
 vt. 包含；包围，环绕；完成
 
 epoch
@@ -16870,7 +16828,6 @@ feasible
 adj. 可行的；可能的；可实行的
 
 fervor
-['fɜːvə]
 n. 热情；热烈；热心；炽热
 
 figure
@@ -17009,10 +16966,6 @@ quasar
 n. [天] 类星体；恒星状球体
 
 racing
-['resɪŋ]
-n. 赛马；竞赛
-vi. 赛马（race的ing形式）；竞赛
-adj. 比赛的
 
 radical
 ['rædɪkl]
@@ -17968,7 +17921,6 @@ n. 数组，阵列；排列，列阵；大批，一系列；衣服
 vt. 排列，部署；打扮
 
 Babylonian
-[,bæbi'ləunjən]
 adj. 巴比伦的；罪恶的
 
 basement
@@ -18335,3 +18287,4 @@ zinc
 vt. 镀锌于…；涂锌于…；用锌处理
 n. 锌
 [,过去式,zincked或zinced,过去分词,zincked或zinced,现在分词,zincking或zincing,]
+
