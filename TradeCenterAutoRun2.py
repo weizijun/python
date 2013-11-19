@@ -5,6 +5,14 @@ import os
 import sys
 
 if __name__ == "__main__" :
+    path = os.getcwd()
+    if path == "/app/TradeCenter" :
+        port = 10118
+    elif path == "/app/wooolTradeCenter" :
+        port = 10119
+    elif path == "/app/labaTradeCenter":
+        port = 10123
+
     port = sys.argv[1]
 
     command_chmod = "chmod 777 TradeCenter"
