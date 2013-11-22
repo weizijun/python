@@ -69,41 +69,69 @@ def SimulatePayConfrim(orderId):
     logger.info("SimulatePayConfrim affected: " + str(affected))
     return affected
 
+g_TestAccount_wei = {
+    "mobile" : "18501735725",
+    "mid" : "775158907",
+    "sdid" : "976030482",
+    "sdpt" : "w195438178",
+    "show_account" : "w195438178",
+    }
+
+g_TestAccount_wang = {
+    "mobile" : "18930878762",
+    "mid" : "17887552",
+    "sdid" : "800986705",
+    "sdpt" : "fatihwk",
+    "show_account" : "fatihwk",
+    }
+
+g_TestAccount_hu = {
+    "mobile" : "15002189215",
+    "mid" : "29572812",
+    "sdid" : "51501922",
+    "sdpt" : "huyyxy",
+    "show_account" : "huyyxy",
+    }
+
+g_client_ip = "127.0.0.1"
+
+
 class TestAPI(unittest.TestCase) :
     def setUp(self):
         self._TestFlag = {
-            'test_SoldAccountVerify' : False,
             'test_SendVerifySms' : False,
             'test_SendVerifySms2' : False,
-            'test_RealInfoPhone' : True,
-            'test_QueryAllGameAccount' : False,
             'test_FreezeAccount' : False,
-            'test_UnfreezeAccount' : False,
             'test_TradeAccount' : False,
             }
 
+        self._TestAccount_wei = g_TestAccount_wei
+        self._TestAccount_wang = g_TestAccount_wang
+        self._TestAccount_hu = g_TestAccount_hu
+        self._client_ip = g_client_ip
+
     def test_RealInfoPhone(self):
-        if self._TestFlag['test_RealInfoPhone'] == False :
-            return
         t_Method = "RealInfoPhone"
         t_Param = {
-            "sdid" : "3238781305",
-            "client_ip" : "127.0.0.1",
+            "sdid" : self._TestAccount_wei["sdid"],
+            "client_ip" : self._client_ip,
             }
         ret = HpsAPI(t_Method,t_Param)
-        print ret
+
+        logger.info("test_RealInfoPhone:")
+        logger.info("result:%s",ret )
+
         self.assertEqual(ret[0],0)
 
     def test_QueryAllGameAccount(self):
-        if self._TestFlag['test_QueryAllGameAccount'] == False :
-            return
         t_Method = "QueryAllGameAccount"
         t_Param = {
-            "sdid" : "3238781305",
-            "client_ip" : "127.0.0.1",
+            "sdid" : self._TestAccount_wei["sdid"],
+            "client_ip" : self._client_ip,
             }
         ret = HpsAPI(t_Method,t_Param)
-        print ret
+        logger.info("test_QueryAllGameAccount:")
+        logger.info("result:%s",ret )
         self.assertEqual(ret[0],0)
 
     def test_FreezeAccount(self):
@@ -111,61 +139,59 @@ class TestAPI(unittest.TestCase) :
             return
         t_Method = "FreezeAccount"
         t_Param = {
-            "sdid" : "976030482",
-            "client_ip" : "127.0.0.1",
+            "sdid" : self._TestAccount_wei["sdid"],
+            "client_ip" : self._client_ip,
             }
         ret = HpsAPI(t_Method,t_Param)
-        print ret
+        logger.info("test_FreezeAccount:")
+        logger.info("result:%s",ret )
         self.assertEqual(ret[0],0)
 
         t_Method = "UnfreezeAccount"
         t_Param = {
-            "sdid" : "3238781305",
-            "client_ip" : "127.0.0.1",
+            "sdid" : self._TestAccount_wei["sdid"],
+            "client_ip" : self._client_ip,
             }
         ret = HpsAPI(t_Method,t_Param)
-        print ret
+        logger.info("test_UnFreezeAccount:")
+        logger.info("result:%s",ret )
         self.assertEqual(ret[0],0)
-
-    def test_UnfreezeAccount(self):
-        if self._TestFlag['test_UnfreezeAccount'] == False :
-            return
 
     def test_TradeAccount(self):
         if self._TestFlag['test_TradeAccount'] == False :
             return
         t_Method = "FreezeAccount"
         t_Param = {
-            "sdid" : "3238781305",
-            "client_ip" : "127.0.0.1",
+            "sdid" : self._TestAccount_wei["sdid"],
+            "client_ip" : self._client_ip,
             }
         ret = HpsAPI(t_Method,t_Param)
-        print ret
+        logger.info("test_TradeAccount test_FreezeAccount:")
+        logger.info("result:%s",ret )
         self.assertEqual(ret[0],0)
 
         t_Method = "TradeAccount"
         t_Param = {
-            "sdid" : "3238781305",
-            "client_ip" : "127.0.0.1",
+            "sdid" : self._TestAccount_wei["sdid"],
+            "client_ip" : self._client_ip,
             "phone" : "18501735725",
             "pass_word" : "abc123456789",
             "customer_acc" : "weizijuntestc2c",
             }
         ret = HpsAPI(t_Method,t_Param)
-        print ret
+        logger.info("test_TradeAccount:")
+        logger.info("result:%s",ret )
         self.assertEqual(ret[0],0)
 
-
     def test_SoldAccountVerify(self):
-        if self._TestFlag['test_SoldAccountVerify'] == False :
-            return
         t_Method = "SoldAccountVerify"
         t_Param = {
-            "sdid" : "3238781305",
-            "client_ip" : "127.0.0.1",
+            "sdid" : "976030482",#self._TestAccount_wei["sdid"],
+            "client_ip" : self._client_ip,
             }
         ret = HpsAPI(t_Method,t_Param)
-        print ret
+        logger.info("test_SoldAccountVerify:")
+        logger.info("result:%s",ret )
         self.assertEqual(ret[0],0)
 
         t_Result = json.read(ret[1])
@@ -182,8 +208,8 @@ class TestAPI(unittest.TestCase) :
             "client_ip" : "127.0.0.1",
             }
         ret = HpsAPI(t_Method,t_Param)
-        print ret
         logger.info("test_SendVerifySms:")
+        logger.info("result:%s",ret )
         self.assertEqual(ret[0],0)
 
     def test_SendVerifySms2(self):
@@ -197,16 +223,20 @@ class TestAPI(unittest.TestCase) :
             "client_ip" : "127.0.0.1",
             }
         ret = HpsAPI(t_Method,t_Param)
-        print ret
+        logger.info("test_SendVerifySms2:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
 
     def test_QuerySndaId(self):
         t_Method = "QuerySndaId"
         t_Param = {
             "type" :"2",
-            "value" : "weizijuntestc2c"
+            "value" : self._TestAccount_wei["sdpt"],
             }
         ret = HpsAPI(t_Method,t_Param)
-        print ret
+        logger.info("test_QuerySndaId:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
 
     def test_QueryUserInfo(self):
         t_Method = "QueryUserInfo"
@@ -233,17 +263,9 @@ class TestAPI(unittest.TestCase) :
         ret = HpsAPI(t_Method,t_Param)
         print ret
 
-class TestGoodsTrade(unittest.TestCase):
-
+class TestGoodsTradeAPI(unittest.TestCase) :
     def setUp(self):
-        self._TestFlag = {
-            'test_GetGoodsStatus' : True,
-            'test_GoodsOnShelf' : True,
-            'test_ProcessGoods' : True,
-            'test_ProcessBuy' : True,
-            'test_ProcessTotallyTrade' : True,
-            'test_Favorite' : True,
-        }
+        pass
 
     def test_SearchGoodsList(self):
         t_Param = {
@@ -259,7 +281,7 @@ class TestGoodsTrade(unittest.TestCase):
         t_Param = {
             "state" : 2,
             "game_id" : 89,
-        }
+            }
         ret = SearchGoodsList(t_Param)
         logger.info("test_SearchGoodsList 2:")
         logger.info("result:%s",ret )
@@ -272,7 +294,7 @@ class TestGoodsTrade(unittest.TestCase):
             "game_id" : 89,
             "area_id" : 1,
             "group_id" : 1,
-        }
+            }
         ret = SearchGoodsList(t_Param)
         logger.info("test_SearchGoodsList 3:")
         logger.info("result:%s",ret )
@@ -321,7 +343,7 @@ class TestGoodsTrade(unittest.TestCase):
             "keyword" : "龙之谷",
             "order" : "d",
             "order_type" : "create_time",
-        }
+            }
         ret = SearchGoodsList(t_Param)
         logger.info("test_SearchGoodsList 6:")
         logger.info("result:%s",ret )
@@ -340,7 +362,7 @@ class TestGoodsTrade(unittest.TestCase):
             "order" : "d",
             "order_type" : "create_time",
             "product_type" : 10,
-        }
+            }
         ret = SearchGoodsList(t_Param)
         logger.info("test_SearchGoodsList 7:")
         logger.info("result:%s",ret )
@@ -387,7 +409,7 @@ class TestGoodsTrade(unittest.TestCase):
         t_Param = {
             "sdid" : "1974048456",
             "book_id" : "EF51EDAC-8FB2-4C5C-AA2F-C88935FBE15D"
-            }
+        }
         ret = GoodsAPI(method,t_Param)
         logger.info("test_GetAccountDetail 2:")
         logger.info("result:%s",ret )
@@ -397,12 +419,77 @@ class TestGoodsTrade(unittest.TestCase):
             self.assertTrue(type(t_Result["book_id"]) is types.StringType)
             self.assertTrue(type(t_Result["favorite_flag"]) is types.IntType)
 
-    def test_GoodsOnShelf(self):
-        method = "GoodsOnShelf"
+    def test_TradeList(self):
+        t_TradeListMethod = "TradeList"
+        t_Param = {
+            "buy_type" : 1,
+            "game_id" : 89,
+            "result_type" : "all",
+            #"sdid" : "gz00098991526.pt"
+            "sdid" : "1974048456"
+        }
+        ret = TradeAPI(t_TradeListMethod,t_Param)
+        logger.info("test_TradeList:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+    def test_CollectFavorite(self):
+        t_TradeListMethod = "CollectFavorite"
+        t_Param = {
+            "book_id" : "3CB7FB7F-23FF-4ECD-9970-B55E2ACEAD08",
+            "sdpt" : "gz00098991526.pt",
+            "sdid" : "1974048456",
+            }
+        ret = GoodsAPI(t_TradeListMethod,t_Param)
+        logger.info("test_CollectFavorite:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+    def test_QueryFavorite(self):
+        t_TradeListMethod = "QueryFavorite"
+        t_Param = {
+            "sdid" : "1974048456",
+            }
+        ret = GoodsAPI(t_TradeListMethod,t_Param)
+        logger.info("test_CollectFavorite:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+    def test_QueryIsFavorite(self):
+        t_TradeListMethod = "QueryIsFavorite"
+        t_Param = {
+            "book_id" : "3CB7FB7F-23FF-4ECD-9970-B55E2ACEAD08",
+            "sdid" : "1974048456",
+            }
+        ret = GoodsAPI(t_TradeListMethod,t_Param)
+        logger.info("test_QueryIsFavorite:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+    def test_DeleteFavorite(self):
+        t_TradeListMethod = "DeleteFavorite"
+        t_Param = {
+            "book_id" : "EF51EDAC-8FB2-4C5C-AA2F-C88935FBE15D",
+            "sdid" : "1974048456",
+            }
+        ret = GoodsAPI(t_TradeListMethod,t_Param)
+        logger.info("test_DeleteFavorite:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+class TestProcessGoodsTrade(unittest.TestCase) :
+    def setUp(self):
+        self._TestFlag = {
+            'test_GoodsOnShelf' : False,
+            'test_ProcessGoods' : False,
+            'test_ProcessBuy' : False,
+            'test_ProcessTotallyTrade' : False,
+            'test_ProcessFavorite' : False,
+        }
 
     def test_ProcessGoods(self):
         if self._TestFlag['test_ProcessGoods'] == False :
-            return
+                return
         #填写信息
         t_RegisterInfoMethod = "RegisterInfo"
         t_Param = {
@@ -1315,66 +1402,10 @@ class TestGoodsTrade(unittest.TestCase):
 
         #修改账号密码信息
 
-    def test_TradeList(self):
-        t_TradeListMethod = "TradeList"
-        t_Param = {
-            "buy_type" : 1,
-            "game_id" : 89,
-            "result_type" : "all",
-            #"sdid" : "gz00098991526.pt"
-            "sdid" : "1974048456"
-        }
-        ret = TradeAPI(t_TradeListMethod,t_Param)
-        logger.info("test_TradeList:")
-        logger.info("result:%s",ret )
-        self.assertEqual(ret[0],0)
 
-    def test_CollectFavorite(self):
-        t_TradeListMethod = "CollectFavorite"
-        t_Param = {
-            "book_id" : "3CB7FB7F-23FF-4ECD-9970-B55E2ACEAD08",
-            "sdpt" : "gz00098991526.pt",
-            "sdid" : "1974048456",
-        }
-        ret = GoodsAPI(t_TradeListMethod,t_Param)
-        logger.info("test_CollectFavorite:")
-        logger.info("result:%s",ret )
-        self.assertEqual(ret[0],0)
-
-    def test_QueryFavorite(self):
-        t_TradeListMethod = "QueryFavorite"
-        t_Param = {
-            "sdid" : "1974048456",
-            }
-        ret = GoodsAPI(t_TradeListMethod,t_Param)
-        logger.info("test_CollectFavorite:")
-        logger.info("result:%s",ret )
-        self.assertEqual(ret[0],0)
-
-    def test_QueryIsFavorite(self):
-        t_TradeListMethod = "QueryIsFavorite"
-        t_Param = {
-            "book_id" : "3CB7FB7F-23FF-4ECD-9970-B55E2ACEAD08",
-            "sdid" : "1974048456",
-            }
-        ret = GoodsAPI(t_TradeListMethod,t_Param)
-        logger.info("test_QueryIsFavorite:")
-        logger.info("result:%s",ret )
-        self.assertEqual(ret[0],0)
-
-    def test_DeleteFavorite(self):
-        t_TradeListMethod = "DeleteFavorite"
-        t_Param = {
-            "book_id" : "EF51EDAC-8FB2-4C5C-AA2F-C88935FBE15D",
-            "sdid" : "1974048456",
-            }
-        ret = GoodsAPI(t_TradeListMethod,t_Param)
-        logger.info("test_DeleteFavorite:")
-        logger.info("result:%s",ret )
-        self.assertEqual(ret[0],0)
 
     def test_ProcessFavorite(self):
-        if self._TestFlag["test_Favorite"] == False :
+        if self._TestFlag["test_ProcessFavorite"] == False :
             return
 
         #通过列表查看商品
@@ -1452,9 +1483,471 @@ class TestGoodsTrade(unittest.TestCase):
         logger.info("result:%s",ret )
         self.assertEqual(ret[0],0)
 
+class TestProcess(unittest.TestCase) :
+    def setUp(self):
+        self._TestFlag = {
+            'test_ProcessGoods' : True,
+            'test_ProcessBuy' : True,
+            'test_ProcessTotallyTrade' : True,
+            }
 
+    def test_ProcessGoods(self):
+        if self._TestFlag['test_ProcessGoods'] == False :
+            return
+
+        #上架商品
+        t_Bookid = self._GoodsOnshlef()
+
+        #锁定商品
+        t_LockGoodsMethod = "LockGoods"
+        t_Param = {
+            "sdid" : g_TestAccount_wang["mid"],
+            "order_id" : "123456789",
+            "book_id" : t_Bookid,
+            }
+        ret = GoodsAPI(t_LockGoodsMethod,t_Param)
+        logger.info("test_LockGoods:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        #解锁商品
+        t_UnLockGoodsMethod = "UnLockGoods"
+        t_Param = {
+            "sdid" : g_TestAccount_wang["mid"],
+            "order_id" : "123456789",
+            "book_id" : t_Bookid,
+            }
+        ret = GoodsAPI(t_UnLockGoodsMethod,t_Param)
+        logger.info("test_UnLockGoods:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        #下架商品
+        t_GoodsOffShelfMethod = "GoodsOffShelf"
+        t_Param = {
+            "sdid" : g_TestAccount_wei["mid"],
+            "book_id" : t_Bookid,
+            }
+        ret = GoodsAPI(t_GoodsOffShelfMethod,t_Param)
+        logger.info("test_GoodsOffShelf:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+    def test_ProcessTotallyTrade(self):
+        if self._TestFlag['test_ProcessTotallyTrade'] == False :
+            return
+
+        #上架商品
+        t_Bookid = self._GoodsOnshlef()
+
+        #购买商品
+        t_BuyGoodsMethod = "BuyGoods"
+        t_Param = {
+            "book_id" : t_Bookid,
+            "sdpt" : g_TestAccount_wang["mobile"],
+            "sdid" : g_TestAccount_wang["mid"],
+            "mid_account" : "alipay",
+            "client_ip" : g_client_ip,
+            "src_code" : 4,
+            }
+        ret = TradeAPI(t_BuyGoodsMethod,t_Param)
+        logger.info("test_BuyGoods:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        t_Result = json.read(ret[1])
+        t_OrderId = t_Result["order_id"]
+
+        value = t_Result
+        self.assertEqual(value["order_type"],5)
+        self.assertEqual(t_Result["book_id"],t_Bookid)
+        self.assertEqual(value["total_price"],"100.00")
+        self.assertEqual(value["price"],"100.00")
+        self.assertEqual(value["num"],"1")
+        self.assertEqual(value["b_matrix_id"],"89-10005-10001")
+        self.assertEqual(value["s_matrix_id"],"89-10005-10001")
+        self.assertEqual(value["buyer_ptaccount"],g_TestAccount_wang["mobile"])
+        self.assertEqual(value["seller_ptaccount"],g_TestAccount_wei["mobile"])
+        self.assertEqual(value["product_name"], "unit_test_title")
+        self.assertEqual(value["goods_type"],10)
+        self.assertEqual(value["product_tips"], "content")
+        self.assertTrue(type(value["create_time"]) is types.StringType)
+        self.assertEqual(value["status"],"1")
+
+        #手动更改状态为已付款
+        ret = SimulatePayConfrim(t_OrderId)
+        self.assertEqual(ret,1)
+
+        #后台通过认证
+        t_JudgeGoodsBuyMethod = "JudgeGoodsBuy"
+        t_Param = {
+            "judge_result" : 1,
+            "user_name" : "weizijun",
+            "order_id" : t_OrderId,
+            }
+        ret = TradeAPI(t_JudgeGoodsBuyMethod,t_Param)
+        logger.info("test_JudgeGoodsOnBuy:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        #买家确认收货
+        t_ConfirmBuyMethod = "ConfirmBuy"
+        t_Param = {
+            "order_id" : t_OrderId,
+            "sdid" : g_TestAccount_wang["mid"],
+        }
+        ret = TradeAPI(t_ConfirmBuyMethod,t_Param)
+        logger.info("test_ConfirmBuy:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        t_Result = json.read(ret[1])
+        self.assertEqual(t_Result["book_id"],t_Bookid)
+
+        value = t_Result
+        self.assertEqual(value["game_id"],89)
+        self.assertEqual(value["area_id"],10005)
+        self.assertEqual(value["group_id"],10001)
+        self.assertEqual(value["sdpt"],g_TestAccount_wei["mobile"])
+        self.assertEqual(value["sdid"],g_TestAccount_wei["mid"])
+        self.assertEqual(value["product_type"],10)
+        self.assertEqual(value["trade_mode"],4)
+        self.assertEqual(value["p_name"], "unit_test_title")
+        self.assertEqual(value["p_tips"], "content")
+        self.assertEqual(value["p_sdpt"], g_TestAccount_wei["sdpt"])
+        self.assertEqual(value["p_sdid"], g_TestAccount_wei["sdid"])
+        self.assertEqual(value["total_amount"],"100.00")
+        self.assertEqual(value["count"],1)
+        self.assertEqual(value["price"],"100.00")
+        self.assertEqual(value["state"],4)
+        self.assertTrue(type(value["create_time"]) is types.StringType)
+
+    def test_ProcessBuy(self):
+        if self._TestFlag['test_ProcessBuy'] == False :
+            return
+
+        #上架商品
+        t_Bookid = self._GoodsOnshlef()
+
+        #购买商品
+        t_BuyGoodsMethod = "BuyGoods"
+        t_Param = {
+            "book_id" : t_Bookid,
+            "sdpt" : g_TestAccount_wang["mobile"],
+            "sdid" : g_TestAccount_wang["mid"],
+            "mid_account" : "alipay",
+            "client_ip" : g_client_ip,
+            "src_code" : 4,
+            }
+        ret = TradeAPI(t_BuyGoodsMethod,t_Param)
+        logger.info("test_BuyGoods:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        t_Result = json.read(ret[1])
+        t_OrderId = t_Result["order_id"]
+
+        value = t_Result
+        self.assertEqual(value["order_type"],5)
+        self.assertEqual(t_Result["book_id"],t_Bookid)
+        self.assertEqual(value["total_price"],"100.00")
+        self.assertEqual(value["price"],"100.00")
+        self.assertEqual(value["num"],"1")
+        self.assertEqual(value["b_matrix_id"],"89-10005-10001")
+        self.assertEqual(value["s_matrix_id"],"89-10005-10001")
+        self.assertEqual(value["buyer_ptaccount"],g_TestAccount_wang["mobile"],)
+        self.assertEqual(value["seller_ptaccount"],g_TestAccount_wei["mobile"],)
+        self.assertEqual(value["product_name"], "unit_test_title")
+        self.assertEqual(value["goods_type"],10)
+        self.assertEqual(value["product_tips"], "content")
+        self.assertTrue(type(value["create_time"]) is types.StringType)
+        self.assertEqual(value["status"],"1")
+
+        #关闭订单
+        t_CloseOrderMethod = "CloseOrder"
+        t_Param = {
+            "order_id" : t_OrderId,
+            "sdid" : g_TestAccount_wang["mid"],
+            }
+        ret = TradeAPI(t_CloseOrderMethod,t_Param)
+        logger.info("test_CloseOrder:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        time.sleep(15)
+
+        #下架商品
+        t_GoodsOffShelfMethod = "GoodsOffShelf"
+        t_Param = {
+            "sdid" : g_TestAccount_wei["mid"],
+            "book_id" : t_Bookid,
+            }
+        ret = GoodsAPI(t_GoodsOffShelfMethod,t_Param)
+        logger.info("test_GoodsOffShelf:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+    def _GoodsOnshlef(self):
+            #填写信息
+        t_RegisterInfoMethod = "RegisterAccountInfo"
+        t_Param = {
+            "game_id" : 89,
+            "area_id" : 10005,
+            "group_id" : 10001,
+            "game_name" : "龙之谷",
+            "area_name" : "5区",
+            "group_name" : "5组",
+            "sdpt" : g_TestAccount_wei["mobile"],
+            "sdid" : g_TestAccount_wei["mid"],
+            "sdpr" : g_TestAccount_wei["mobile"],
+            "product_type" : 10,
+            "content" : "unit_test_content",
+            "p_sdid" : g_TestAccount_wei["sdid"],
+            "client_ip" : g_client_ip,
+            "src_code" : 4,
+            }
+        ret = GoodsAPI(t_RegisterInfoMethod,t_Param)
+        logger.info("test_RegisterAccountInfo:")
+        logger.info("result:%s",ret )
+
+
+
+        self.assertEqual(ret[0],0)
+        t_Result = json.read(ret[1])
+        self.assertTrue(type(t_Result["book_id"]) is types.StringType)
+
+        t_Bookid = t_Result["book_id"]
+
+        #上传图片
+        t_UploadImageMethod = "UploadImage"
+        t_Param = {
+            "game_id" : 89,
+            "area_id" : 10005,
+            "group_id" : 10001,
+            "sdpt" : g_TestAccount_wei["sdpt"],
+            "sdid" : g_TestAccount_wei["sdid"],
+            "local_path" : "unit_test_local_path_1",
+            "url" : "http://static.sdg-china.com/openg/souzhuangbei/game_image/szb.png",
+            "book_id" : t_Bookid,
+            }
+        ret = GoodsAPI(t_UploadImageMethod,t_Param)
+        logger.info("test_UploadImage 1:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        t_Param = {
+            "game_id" : 89,
+            "area_id" : 10005,
+            "group_id" : 10001,
+            "sdpt" : g_TestAccount_wei["sdpt"],
+            "sdid" : g_TestAccount_wei["sdid"],
+            "local_path" : "unit test local_path 2",
+            "url" : "http://static.sdg-china.com/openg/souzhuangbei/game_image/szb.png",
+            "book_id" : t_Bookid,
+            }
+        ret = GoodsAPI(t_UploadImageMethod,t_Param)
+        logger.info("test_UploadImage 2:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        t_Param = {
+            "game_id" : 89,
+            "area_id" : 10005,
+            "group_id" : 10001,
+            "sdpt" : g_TestAccount_wei["sdpt"],
+            "sdid" : g_TestAccount_wei["sdid"],
+            "local_path" : "unit test local_path 3",
+            "url" : "http://static.sdg-china.com/openg/souzhuangbei/game_image/szb.png",
+            "book_id" : t_Bookid,
+            }
+        ret = GoodsAPI(t_UploadImageMethod,t_Param)
+        logger.info("test_UploadImage 3:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        t_Param = {
+            "game_id" : 89,
+            "area_id" : 10005,
+            "group_id" : 10001,
+            "sdpt" : g_TestAccount_wei["sdpt"],
+            "sdid" : g_TestAccount_wei["sdid"],
+            "local_path" : "unit test local_path 4",
+            "url" : "http://static.sdg-china.com/openg/souzhuangbei/game_image/szb.png",
+            "book_id" : t_Bookid,
+            }
+        ret = GoodsAPI(t_UploadImageMethod,t_Param)
+        logger.info("test_UploadImage 4:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        t_Param = {
+            "game_id" : 89,
+            "area_id" : 10005,
+            "group_id" : 10001,
+            "sdpt" : g_TestAccount_wei["sdpt"],
+            "sdid" : g_TestAccount_wei["sdid"],
+            "local_path" : "unit test local_path 5",
+            "url" : "http://static.sdg-china.com/openg/souzhuangbei/game_image/szb.png",
+            "book_id" : t_Bookid,
+            }
+        ret = GoodsAPI(t_UploadImageMethod,t_Param)
+        logger.info("test_UploadImage 5:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        t_Param = {
+            "game_id" : 89,
+            "area_id" : 10005,
+            "group_id" : 10001,
+            "sdpt" : g_TestAccount_wei["sdpt"],
+            "sdid" : g_TestAccount_wei["sdid"],
+            "local_path" : "unit test local_path 6",
+            "url" : "http://static.sdg-china.com/openg/souzhuangbei/game_image/szb.png",
+            "book_id" : t_Bookid,
+            }
+        ret = GoodsAPI(t_UploadImageMethod,t_Param)
+        logger.info("test_UploadImage 6:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        #上架商品
+        t_OnShelfMethod = "GoodsOnShelfV2"
+        t_Param = {
+            "book_id" : t_Bookid,
+            "sdid" : g_TestAccount_wei["mid"],
+            "title" : "unit_test_title",
+            "content" : "content",
+            "price" : 100.00,
+            "client_ip" : g_client_ip,
+            "src_code" : 4
+        }
+        ret = GoodsAPI(t_OnShelfMethod,t_Param)
+        logger.info("test_GoodsOnShelfV2:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        #判定已经可以上架
+        t_JudgeGoodsOnShelfMethod = "JudgeGoodsOnShelf"
+        t_Param = {
+            "judge_result" : 1,
+            "user_name" : "weizijun",
+            "book_id" : t_Bookid,
+            }
+        ret = GoodsAPI(t_JudgeGoodsOnShelfMethod,t_Param)
+        logger.info("test_JudgeGoodsOnShelf:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        #通过列表查看商品
+        t_SearchGoodsListMethod = "SearchGoodsList"
+        t_Param = {
+            "game_id" : 89,
+            "area_id" : 10005,
+            "group_id" : 10001,
+            "product_type" : 10,
+            "state" : 2,
+            "page" : 1,
+            "count" : 100,
+            "keyword" : "test",
+            "order" : "d",
+            "order_type" : "create_time",
+            "price_low" : 99,
+            "price_high" : 101
+        }
+        ret = GoodsAPI(t_SearchGoodsListMethod,t_Param)
+        logger.info("test_SearchGoodsList:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        t_Result = json.read(ret[1])
+        t_BookIdFlag = False
+        data = t_Result["list"]
+        for value in data :
+            if value["book_id"] == t_Bookid :
+                t_BookIdFlag = True
+                self.assertEqual(value["game_id"],89)
+                self.assertEqual(value["area_id"],10005)
+                self.assertEqual(value["group_id"],10001)
+                self.assertEqual(value["sdpt"],g_TestAccount_wei["mobile"])
+                self.assertEqual(value["sdid"],g_TestAccount_wei["mid"])
+                self.assertEqual(value["product_type"],10)
+                self.assertEqual(value["trade_mode"],4)
+                self.assertEqual(value["p_name"], "unit_test_title")
+                self.assertEqual(value["total_amount"],"100.00")
+                self.assertEqual(value["count"],1)
+                self.assertEqual(value["price"],"100.00")
+                self.assertEqual(value["state"],2)
+                self.assertTrue(type(value["create_time"]) is types.StringType)
+
+        self.assertTrue(t_BookIdFlag)
+
+        #查看商品
+        t_GetGoodsStatusMethod = "GetGoodsStatus"
+        t_Param = {
+            "book_id" : t_Bookid,
+            }
+        ret = GoodsAPI(t_GetGoodsStatusMethod,t_Param)
+        logger.info("test_GetGoodsStatus:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        t_Result = json.read(ret[1])
+        self.assertEqual(t_Result["book_id"],t_Bookid)
+
+        value = t_Result
+        self.assertEqual(value["game_id"],89)
+        self.assertEqual(value["area_id"],10005)
+        self.assertEqual(value["group_id"],10001)
+        self.assertEqual(value["sdpt"],g_TestAccount_wei["mobile"])
+        self.assertEqual(value["sdid"],g_TestAccount_wei["mid"])
+        self.assertEqual(value["product_type"],10)
+        self.assertEqual(value["trade_mode"],4)
+        self.assertEqual(value["p_name"], "unit_test_title")
+        self.assertEqual(value["p_tips"], "content")
+        self.assertEqual(value["total_amount"],"100.00")
+        self.assertEqual(value["count"],1)
+        self.assertEqual(value["price"],"100.00")
+        self.assertEqual(value["state"],2)
+        self.assertTrue(type(value["create_time"]) is types.StringType)
+        self.assertEqual(len(t_Result["image_list"]),5)
+
+        #查看商品详情（带账号密码）
+        t_GetAccountDetailMethod = "GetAccountDetail"
+        t_Param = {
+            "book_id" : t_Bookid,
+            "sdid" : g_TestAccount_wei["mid"],
+        }
+        ret = GoodsAPI(t_GetAccountDetailMethod,t_Param)
+        logger.info("test_GetAccountDetail:")
+        logger.info("result:%s",ret )
+        self.assertEqual(ret[0],0)
+
+        t_Result = json.read(ret[1])
+        self.assertEqual(t_Result["book_id"],t_Bookid)
+
+        value = t_Result
+        self.assertEqual(value["game_id"],89)
+        self.assertEqual(value["area_id"],10005)
+        self.assertEqual(value["group_id"],10001)
+        self.assertEqual(value["sdpt"],g_TestAccount_wei["mobile"])
+        self.assertEqual(value["sdid"],g_TestAccount_wei["mid"])
+        self.assertEqual(value["product_type"],10)
+        self.assertEqual(value["trade_mode"],4)
+        self.assertEqual(value["p_name"], "unit_test_title")
+        self.assertEqual(value["p_tips"], "content")
+        self.assertEqual(value["p_sdid"], g_TestAccount_wei["sdid"]),
+        self.assertEqual(value["p_sdpt"], g_TestAccount_wei["sdpt"]),
+        self.assertEqual(value["total_amount"],"100.00")
+        self.assertEqual(value["count"],1)
+        self.assertEqual(value["price"],"100.00")
+        self.assertEqual(value["state"],2)
+        self.assertTrue(type(value["create_time"]) is types.StringType)
+        self.assertEqual(len(t_Result["image_list"]),5)
+
+        return t_Bookid
 
 if __name__ == '__main__':
+    pass
     #TestGoodsTrade.main()
-    TestAPI.main()
+    #TestAPI.main()
 
